@@ -56,6 +56,11 @@ public class PapiReplacer extends PlaceholderExpansion {
     }
 
     @Override
+    public boolean persist() {
+        return true;
+    }
+
+    @Override
     public String onPlaceholderRequest(Player p, String params) {
         return this.replacer.replace(new SpigotReplacerPlayer(p), params);
     }

@@ -21,6 +21,7 @@
 package com.clubobsidian.dynamicreplacer.spigot;
 
 import com.clubobsidian.dynamicreplacer.common.replacer.ReplacerRegistry;
+import com.clubobsidian.dynamicreplacer.common.replacer.TestReplacer;
 import com.clubobsidian.dynamicreplacer.spigot.replacer.PapiReplacerRegistry;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -31,6 +32,7 @@ public class DynamicReplacerSpigot extends JavaPlugin {
         if (this.isPluginLoaded("PlaceholderAPI")) {
             ReplacerRegistry.registerInstance(new PapiReplacerRegistry());
         }
+        new TestReplacer().register(this);
     }
 
     private boolean isPluginLoaded(String pluginName) {
