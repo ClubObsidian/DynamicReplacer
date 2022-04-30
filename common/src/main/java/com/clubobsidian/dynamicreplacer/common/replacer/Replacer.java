@@ -18,5 +18,5 @@ public abstract class Replacer {
         return ReplacerRegistry.getInstance().register(this, plugin);
     }
 
-    public abstract String replace(ReplacerPlayer player, String identifier);
+    public abstract String replace(ReplacerPlayer player, String params);
 }

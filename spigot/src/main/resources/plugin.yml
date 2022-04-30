@@ -1,0 +1,7 @@
+name: "DynamicReplacer"
+main: "com.clubobsidian.dynamicreplacer.spigot.DynamicReplacerSpigot"
+version: "1.0.0"
+softdepend:
+  - "PlaceholderAPI"
+api-version: "1.13"
+author: "virustotal#0001"

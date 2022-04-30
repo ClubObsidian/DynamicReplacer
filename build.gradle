@@ -5,15 +5,26 @@ plugins {
 group 'com.clubobsidian'
 version '1.0.0'
 
-repositories {
-    mavenCentral()
-}
+subprojects {
+    apply plugin: 'java-library'
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-}
+    group 'com.clubobsidian'
+    version '1.0.0'
+    repositories {
+        flatDir { dirs 'libs' }
+        mavenCentral()
+        maven { url "https://hub.spigotmc.org/nexus/content/repositories/snapshots" }
+        maven { url = "https://oss.sonatype.org/content/repositories/snapshots" }
+    }
 
-test {
-    useJUnitPlatform()
+    def junitVersion = "5.7.0"
+
+    dependencies {
+        testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 }

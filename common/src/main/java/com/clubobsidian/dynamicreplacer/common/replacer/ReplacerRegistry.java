@@ -1,6 +1,6 @@
 package com.clubobsidian.dynamicreplacer.common.replacer;
 
-public abstract class ReplacerRegistry {
+public abstract class ReplacerRegistry<T> {
 
     private static ReplacerRegistry instance;
 
@@ -16,12 +16,12 @@ public abstract class ReplacerRegistry {
         return false;
     }
 
-    public abstract <T> boolean register(Replacer replacer, T plugin);
+    public abstract boolean register(Replacer replacer, T plugin);
 
     public boolean unregister(Replacer replacer) {
         return this.unregister(replacer.getIdentifier());
     }
 
-    public abstract boolean unregister(String replacerIdentifier);
+    public abstract boolean unregister(String identifier);
 
 }

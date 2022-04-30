@@ -1,3 +1,4 @@
 rootProject.name = 'DynamicReplacer'
 include 'common'
+include 'spigot'
 
