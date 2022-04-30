@@ -5,15 +5,15 @@ public abstract class ReplacerRegistry {
     private static ReplacerRegistry instance;
 
     public static ReplacerRegistry getInstance() {
-        if (instance == null) {
-            instance = findInstance();
-        }
         return instance;
     }
 
-    private static ReplacerRegistry findInstance() {
-        //TODO - implement
-        return null;
+    public static boolean registerInstance(ReplacerRegistry registry) {
+        if (instance != null && registry != null) {
+            instance = registry;
+            return true;
+        }
+        return false;
     }
 
     public abstract <T> boolean register(Replacer replacer, T plugin);
@@ -23,7 +23,5 @@ public abstract class ReplacerRegistry {
     }
 
     public abstract boolean unregister(String replacerIdentifier);
-
-    protected abstract boolean canCreateRegistry();
 
 }
