@@ -29,7 +29,7 @@ public abstract class ReplacerRegistry<T> {
     }
 
     public static boolean registerInstance(ReplacerRegistry registry) {
-        if (instance != null && registry != null) {
+        if (instance == null && registry != null) {
             instance = registry;
             return true;
         }
