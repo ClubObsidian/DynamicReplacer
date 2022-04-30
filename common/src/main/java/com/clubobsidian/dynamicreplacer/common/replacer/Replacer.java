@@ -16,9 +16,7 @@ public abstract class Replacer {
 
     public abstract String getVersion();
 
-    public abstract Object getPlugin();
-
-    public boolean register() {
-        return ReplacerRegistry.getInstance().register(this);
+    public <T> boolean register(T plugin) {
+        return ReplacerRegistry.getInstance().register(this, plugin);
     }
 }

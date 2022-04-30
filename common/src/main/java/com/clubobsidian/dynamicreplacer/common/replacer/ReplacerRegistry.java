@@ -34,7 +34,7 @@ public abstract class ReplacerRegistry {
         return this.capabilities.contains(capability);
     }
 
-    public abstract boolean register(Replacer replacer);
+    public abstract <T> boolean register(Replacer replacer, T plugin);
 
     public boolean unregister(Replacer replacer) {
         return this.unregister(replacer.getIdentifier());
@@ -43,4 +43,5 @@ public abstract class ReplacerRegistry {
     public abstract boolean unregister(String replacerIdentifier);
 
     protected abstract boolean canCreateRegistry();
+    
 }
