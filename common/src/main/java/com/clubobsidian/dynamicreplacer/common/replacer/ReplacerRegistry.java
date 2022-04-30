@@ -1,9 +1,5 @@
 package com.clubobsidian.dynamicreplacer.common.replacer;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-
 public abstract class ReplacerRegistry {
 
     private static ReplacerRegistry instance;
@@ -20,20 +16,6 @@ public abstract class ReplacerRegistry {
         return null;
     }
 
-    private final Collection<RegistryCapability> capabilities;
-
-    public ReplacerRegistry(RegistryCapability... capabilities) {
-        this(Arrays.asList(capabilities));
-    }
-
-    public ReplacerRegistry(Collection<RegistryCapability> capabilities) {
-        this.capabilities = new HashSet<>(capabilities);
-    }
-
-    public boolean hasCapability(RegistryCapability capability) {
-        return this.capabilities.contains(capability);
-    }
-
     public abstract <T> boolean register(Replacer replacer, T plugin);
 
     public boolean unregister(Replacer replacer) {
@@ -43,5 +25,5 @@ public abstract class ReplacerRegistry {
     public abstract boolean unregister(String replacerIdentifier);
 
     protected abstract boolean canCreateRegistry();
-    
+
 }
