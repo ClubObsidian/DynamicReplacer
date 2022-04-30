@@ -1,5 +1,7 @@
 package com.clubobsidian.dynamicreplacer.common.replacer;
 
+import com.clubobsidian.dynamicreplacer.common.player.ReplacerPlayer;
+
 public abstract class Replacer {
 
     private final String identifier;
@@ -15,4 +17,6 @@ public abstract class Replacer {
     public <T> boolean register(T plugin) {
         return ReplacerRegistry.getInstance().register(this, plugin);
     }
+
+    public abstract String replace(ReplacerPlayer player, String identifier);
 }
