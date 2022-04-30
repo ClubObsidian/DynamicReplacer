@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.1'
 }
 
 group 'com.clubobsidian'
@@ -7,9 +8,16 @@ version '1.0.0'
 
 subprojects {
     apply plugin: 'java-library'
+    apply plugin: 'com.github.johnrengelman.shadow'
 
     group 'com.clubobsidian'
     version '1.0.0'
+
+    shadowJar {
+        archiveBaseName.set('DynamicReplacer')
+    }
+
+
     repositories {
         flatDir { dirs 'libs' }
         mavenCentral()
