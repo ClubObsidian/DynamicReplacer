@@ -3,6 +3,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'com.github.johnrengelman.shadow' version '7.1.1'
+    id 'org.cadixdev.licenser' version '0.6.1'
 }
 
 group 'com.clubobsidian'
@@ -11,6 +12,7 @@ version '1.0.0'
 subprojects {
     apply plugin: 'java-library'
     apply plugin: 'com.github.johnrengelman.shadow'
+    apply plugin: 'org.cadixdev.licenser'
 
     group 'com.clubobsidian'
     version '1.0.0'
@@ -19,6 +21,14 @@ subprojects {
         archiveBaseName.set('DynamicReplacer')
     }
 
+    license {
+        header = project.rootProject.file('HEADER.txt')
+        include '**/*.java'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 
     repositories {
         flatDir { dirs 'libs' }
@@ -32,9 +42,5 @@ subprojects {
     dependencies {
         testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
         testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-    }
-
-    test {
-        useJUnitPlatform()
     }
 }
